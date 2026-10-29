@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beltounsi"
+version = "0.1.0"
+description = "Tooling for the BelTounsi Tunisian Arabic dataset: Tunisia-Sat crawler with RSS fallback, and the open-dataset mirror"
+requires-python = ">=3.10"
+dependencies = ["selectolax>=1.0", "tomli>=2; python_version < '3.11'"]
+
+[project.optional-dependencies]
+hf = ["huggingface_hub>=0.25", "pyarrow>=15"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+beltounsi-collect = "beltounsi.cli:main"
+beltounsi-mirror = "beltounsi.mirror:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

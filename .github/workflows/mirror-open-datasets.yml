@@ -1,0 +1,30 @@
+name: Mirror open datasets to Hugging Face
+
+# Downloads each open dataset from its original source and uploads it to the BelTounsi HF repo.
+# Runs on GitHub's servers, so none of it uses your own connection.
+# Needs: repository secret HF_TOKEN (write) and repository variable HF_REPO_ID (e.g. you/BelTounsi).
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Comma-separated subsets (empty = all): tarc,tunizi,tsac,tunswitch,fineweb2_aeb,linto_text"
+        required: false
+        default: ""
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ".[hf]"
+      - name: Build and upload
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ vars.HF_REPO_ID }}
+          ONLY: ${{ inputs.only }}
+        run: beltounsi-mirror --only "$ONLY"

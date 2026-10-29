@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Synthetic feed mirroring XenForo 2 RSS seen on tunisia-sat.com (2026-10-29). Usernames are fake. -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>المنتدى العام</title>
+    <link>https://www.tunisia-sat.com/forums/forums/91/</link>
+    <item>
+      <title>شنوة رايكم ؟</title>
+      <pubDate>Thu, 29 Oct 2026 10:25:55 +0000</pubDate>
+      <link>https://www.tunisia-sat.com/forums/threads/4528479/</link>
+      <guid isPermaLink="false">4528479</guid>
+      <author>invalid@example.com (FakeUserOne)</author>
+      <category domain="https://www.tunisia-sat.com/forums/forums/91/"><![CDATA[المنتدى العام]]></category>
+      <dc:creator>FakeUserOne</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">عسلامة <a href="https://www.tunisia-sat.com/forums/members/fakeusertwo.502/" class="username" data-user-id="502">@FakeUserTwo</a><br />
+<blockquote class="bbCodeBlock bbCodeBlock--quote"><div class="bbCodeBlock-title">FakeUserThree said:</div>quoted text</blockquote>
+برشا mauvais plans، كلموني 98 123 456<br />
+<br />
+ثم بدأت...<br />
+<br />
+<a href="https://www.tunisia-sat.com/forums/threads/4528479/" class="link link--internal">قراءة المزيد</a></div>]]></content:encoded>
+      <slash:comments>22</slash:comments>
+    </item>
+    <item>
+      <title>short one</title>
+      <pubDate>Wed, 28 Oct 2026 09:00:00 +0000</pubDate>
+      <link>https://www.tunisia-sat.com/forums/threads/some-title.4528400/</link>
+      <guid isPermaLink="false">4528400</guid>
+      <dc:creator>FakeUserFour</dc:creator>
+      <content:encoded><![CDATA[<div class="bbWrapper">3aslema ya jma3a</div>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+[Unit]
+Description=BelTounsi Tunisia-Sat collector (crawl with RSS fallback)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=beltounsi
+WorkingDirectory=/opt/beltounsi
+EnvironmentFile=-/opt/beltounsi/.env
+ExecStart=/opt/beltounsi/.venv/bin/beltounsi-collect --config /opt/beltounsi/config.toml run
+Restart=always
+RestartSec=30
+# State is in SQLite and every step is committed, so a restart resumes where it stopped.
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/beltounsi
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

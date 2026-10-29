@@ -1,0 +1,35 @@
+# BelTounsi collector settings. Copy to config.toml and edit. Every key is optional.
+# The Hugging Face token is read from the HF_TOKEN environment variable (put it in .env), never from here.
+
+base_url = "https://www.tunisia-sat.com"
+user_agent = "BelTounsi/0.1 (Tunisian Arabic dataset research; collected with the site admin's permission)"
+data_dir = "data"
+min_delay_seconds = 5.0        # between any two requests to the site; >= 4 is enforced
+
+# ---- full crawl over plain HTTP; a Cloudflare challenge pauses it and RSS takes over
+crawl = true
+sections = [                   # crawled first, in this order
+  "/forums/forums/91/",        # General
+  "/forums/forums/89/",        # Family life
+  "/forums/forums/409/",       # Advice
+  "/forums/forums/85/",        # Hobbies
+  "/forums/sports/",           # Sports
+  "/forums/forums/313/",       # ISPs / telecom
+]
+crawl_all_nodes = true         # then every other forum found in the sitemap
+exclude_paths = ["/forums/forums/66/"]   # English & French discussion
+min_post_date = "2025-01-01"   # newest first, back to this day
+recrawl_hours = 6.0            # re-read listings from page 1 for new activity
+blocked_cooldown_minutes = 30.0  # first pause after a challenge; doubles up to 12 h
+
+# ---- RSS
+global_feed_minutes = 5.0
+node_min_minutes = 15.0
+node_max_minutes = 240.0
+sitemap_refresh_hours = 168.0
+
+author_salt = ""               # empty: authors dropped. Set a long random string to keep salted hashes instead.
+
+# ---- Hugging Face: finished day files are pushed to data/tunisia_sat/ and data/tunisia_sat_rss/
+hf_repo_id = ""                # e.g. "you/BelTounsi"
+hf_push_hours = 24.0
